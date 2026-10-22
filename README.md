@@ -38,59 +38,97 @@ Kode JavaScript:
 document.getElementById("pesan").textContent = "Hello World";
 console.log("Hello World");
 ````
-Hasil: Teks Hello World tampil pada elemen HTML dengan id pesan
+Hasil: Teks ````Hello World```` tampil pada elemen HTML dengan id ````pesan````
 dan juga muncul pada Console browser.
 
-Perbedaan output: textContent menampilkan teks di halaman web,
-sedangkan console.log() menampilkan pesan di Console untuk membantu
+Perbedaan output: ````textContent```` menampilkan teks di halaman web,
+sedangkan ````console.log()```` menampilkan pesan di Console untuk membantu
 pemeriksaan program.
 ![LATIHAN1](images/latihan1.png)
-Latihan 2. Alert dan Prompt
-Tujuan: Meminta nama pengguna dan menampilkan sapaan.
-
-Hasil: Program meminta pengguna memasukkan nama melalui prompt().
+## Latihan 2. Alert dan Prompt
+## Tujuan: Meminta nama pengguna dan menampilkan sapaan.
+Hasil: Program meminta pengguna memasukkan nama melalui ````prompt()````.
 Jika nama diisi, program menampilkan alert sapaan dan memperbarui teks
 halaman menjadi "Selamat datang, \(nama\).". Jika nama kosong atau
 pengguna membatalkan prompt, program menampilkan pesan "Nama belum
 diisi."
+````
+const namaPengguna = prompt("Masukkan nama Anda:", "");
 
-Dokumentasi: Tambahkan screenshot prompt dan hasil alert.
-Latihan 3. Function dan Operasi Aritmetika
-Tujuan: Menghitung penjumlahan, pengurangan, perkalian, pembagian,
+if (namaPengguna && namaPengguna.trim() !== "") {
+  alert("Halo, " + namaPengguna + "!");
+  document.getElementById("pesan").textContent = "Selamat datang, " + namaPengguna + ".";
+} else {
+  alert("Nama belum diisi.");
+}
+````
+![latihan2](images/latihan2.png)
+![latihan2](images/latihan2.1.png)
+## Latihan 3. Function dan Operasi Aritmetika
+## Tujuan: Menghitung penjumlahan, pengurangan, perkalian, pembagian,
 dan sisa bagi dari dua bilangan.
-
 Program menjalankan operasiDasar(9, 4).
+````
+function operasiDasar(a, b) {
+  console.log("Penjumlahan:", a + b);
+  console.log("Pengurangan:", a - b);
+  console.log("Perkalian:", a * b);
+  console.log("Pembagian:", b !== 0 ? a / b : "Tidak dapat dibagi nol");
+  console.log("Modulus:", a % b);
+}
 
+operasiDasar(9, 4);
+````
 Hasil yang diharapkan di Console:
 Penjumlahan: 13
 Pengurangan: 5
 Perkalian: 36
 Pembagian: 2.25
 Modulus: 1
-Dokumentasi: Tambahkan screenshot Console yang menunjukkan hasil
-perhitungan.
-Latihan 4. Percabangan if-else
-Tujuan: Menentukan status kelulusan berdasarkan nilai yang
+![latihan3](images/latihan3.png)
+## Latihan 4. Percabangan if-else
+## Tujuan: Menentukan status kelulusan berdasarkan nilai yang
 dimasukkan.
-
 Aturan program: - Nilai 60 sampai 100: "Lulus". - Nilai di bawah 60:
 "Belum lulus". - Input kosong, dibatalkan, bukan angka yang valid, atau
 di luar rentang 0--100: "Input nilai tidak valid."
+````
+const inputNilai = prompt("Masukkan nilai (0–100):");
+const nilaiMahasiswa = Number(inputNilai);
 
-Dokumentasi: Tambahkan screenshot pengujian nilai lulus, belum
-lulus, dan input tidak valid.
-Latihan 5. Seleksi switch
-Tujuan: Menampilkan nama bilangan berdasarkan angka 1 sampai 5.
+if (inputNilai === null || inputNilai.trim() === "" ||
+    Number.isNaN(nilaiMahasiswa) || nilaiMahasiswa < 0 || nilaiMahasiswa > 100) {
+  alert("Input nilai tidak valid.");
+} else if (nilaiMahasiswa >= 60) {
+  alert("Lulus");
+} else {
+  alert("Belum lulus");
+}
+````
+![latihan4](images/latihan4.png)
+![latihan](latihan4.1.png)
+## Latihan 5. Seleksi switch
+## Tujuan: Menampilkan nama bilangan berdasarkan angka 1 sampai 5.
+````
+const inputPilihan = prompt("Masukkan angka 1–5:");
 
+switch (inputPilihan) {
+  case "1": alert("Bilangan satu"); break;
+  case "2": alert("Bilangan dua"); break;
+  case "3": alert("Bilangan tiga"); break;
+  case "4": alert("Bilangan empat"); break;
+  case "5": alert("Bilangan lima"); break;
+  default: alert("Pilihan tidak tersedia");
+}
+````
 Hasil yang diharapkan: - Input 1: "Bilangan satu". - Input 2:
 "Bilangan dua". - Input 3: "Bilangan tiga". - Input 4: "Bilangan
 empat". - Input 5: "Bilangan lima". - Input lain: "Pilihan tidak
 tersedia".
-
-Dokumentasi: Tambahkan screenshot salah satu hasil yang diuji dan
-hasil input tidak tersedia.
-Latihan 6. Form Bilangan Genap atau Ganjil
-Tujuan: Memeriksa apakah bilangan bulat termasuk genap atau ganjil.
+![latihan](images/latihan5.png)
+![latihan](images/latihan5.1.png)
+## Latihan 6. Form Bilangan Genap atau Ganjil
+## Tujuan: Memeriksa apakah bilangan bulat termasuk genap atau ganjil.
 
 Hasil yang diharapkan: - Bilangan yang habis dibagi 2 menampilkan
 "Bilangan genap". - Bilangan yang tidak habis dibagi 2 menampilkan
@@ -99,9 +137,8 @@ pesan validasi.
 
 Pengujian yang disarankan: Angka positif, angka negatif, nol,
 bilangan desimal, dan input kosong.
-
-Dokumentasi: Tambahkan screenshot hasil pemeriksaan bilangan genap
-dan ganjil.
+![latihan](images/latihan6.png)
+![latihan](latihan6.1.png)
 Latihan 7. Mengubah Warna Halaman
 Tujuan: Mengubah warna latar halaman menggunakan function dengan
 parameter.
