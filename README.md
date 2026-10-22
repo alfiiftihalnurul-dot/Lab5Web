@@ -32,13 +32,13 @@
 6. Menyimpan screenshot hasil pengujian untuk dokumentasi.
 # D. Hasil Praktikum
 ## Latihan 1. Menampilkan Output
-## Tujuan: Menampilkan teks pada halaman web dan Console.
-Kode JavaScript:
+**Tujuan:** Menampilkan teks pada halaman web dan Console.
+**Kode JavaScript:**
 ````
 document.getElementById("pesan").textContent = "Hello World";
 console.log("Hello World");
 ````
-Hasil: Teks ````Hello World```` tampil pada elemen HTML dengan id ````pesan````
+**Hasil:** Teks ````Hello World```` tampil pada elemen HTML dengan id ````pesan````
 dan juga muncul pada Console browser.
 
 Perbedaan output: ````textContent```` menampilkan teks di halaman web,
@@ -46,8 +46,8 @@ sedangkan ````console.log()```` menampilkan pesan di Console untuk membantu
 pemeriksaan program.
 ![LATIHAN1](images/latihan1.png)
 ## Latihan 2. Alert dan Prompt
-## Tujuan: Meminta nama pengguna dan menampilkan sapaan.
-Hasil: Program meminta pengguna memasukkan nama melalui ````prompt()````.
+**Tujuan:** Meminta nama pengguna dan menampilkan sapaan.
+**Hasil:** Program meminta pengguna memasukkan nama melalui ````prompt()````.
 Jika nama diisi, program menampilkan alert sapaan dan memperbarui teks
 halaman menjadi "Selamat datang, \(nama\).". Jika nama kosong atau
 pengguna membatalkan prompt, program menampilkan pesan "Nama belum
@@ -65,7 +65,7 @@ if (namaPengguna && namaPengguna.trim() !== "") {
 ![latihan2](images/latihan2.png)
 ![latihan2](images/latihan2.1.png)
 ## Latihan 3. Function dan Operasi Aritmetika
-## Tujuan: Menghitung penjumlahan, pengurangan, perkalian, pembagian,
+**Tujuan:** Menghitung penjumlahan, pengurangan, perkalian, pembagian,
 dan sisa bagi dari dua bilangan.
 Program menjalankan operasiDasar(9, 4).
 ````
@@ -79,7 +79,7 @@ function operasiDasar(a, b) {
 
 operasiDasar(9, 4);
 ````
-Hasil yang diharapkan di Console:
+**Hasil yang diharapkan di Console:**
 Penjumlahan: 13
 Pengurangan: 5
 Perkalian: 36
@@ -87,9 +87,9 @@ Pembagian: 2.25
 Modulus: 1
 ![latihan3](images/latihan3.png)
 ## Latihan 4. Percabangan if-else
-## Tujuan: Menentukan status kelulusan berdasarkan nilai yang
+**Tujuan:** Menentukan status kelulusan berdasarkan nilai yang
 dimasukkan.
-Aturan program: - Nilai 60 sampai 100: "Lulus". - Nilai di bawah 60:
+**Aturan program**: - Nilai 60 sampai 100: "Lulus". - Nilai di bawah 60:
 "Belum lulus". - Input kosong, dibatalkan, bukan angka yang valid, atau
 di luar rentang 0--100: "Input nilai tidak valid."
 ````
@@ -108,7 +108,7 @@ if (inputNilai === null || inputNilai.trim() === "" ||
 ![latihan4](images/latihan4.png)
 ![latihan](images/latihan4.1.png)
 ## Latihan 5. Seleksi switch
-## Tujuan: Menampilkan nama bilangan berdasarkan angka 1 sampai 5.
+**Tujuan:** Menampilkan nama bilangan berdasarkan angka 1 sampai 5.
 ````
 const inputPilihan = prompt("Masukkan angka 1–5:");
 
@@ -121,16 +121,16 @@ switch (inputPilihan) {
   default: alert("Pilihan tidak tersedia");
 }
 ````
-Hasil yang diharapkan: - Input 1: "Bilangan satu". - Input 2:
+**Hasil yang diharapkan:** - Input 1: "Bilangan satu". - Input 2:
 "Bilangan dua". - Input 3: "Bilangan tiga". - Input 4: "Bilangan
 empat". - Input 5: "Bilangan lima". - Input lain: "Pilihan tidak
 tersedia".
 ![latihan](images/latihan5.png)
 ![latihan](images/latihan5.1.png)
 ## Latihan 6. Form Bilangan Genap atau Ganjil
-## Tujuan: Memeriksa apakah bilangan bulat termasuk genap atau ganjil.
+**Tujuan:** Memeriksa apakah bilangan bulat termasuk genap atau ganjil.
 
-Hasil yang diharapkan: - Bilangan yang habis dibagi 2 menampilkan
+**Hasil yang diharapkan:** - Bilangan yang habis dibagi 2 menampilkan
 "Bilangan genap". - Bilangan yang tidak habis dibagi 2 menampilkan
 "Bilangan ganjil". - Input kosong atau bukan bilangan bulat menampilkan
 pesan validasi.
@@ -290,74 +290,87 @@ function prosesNilai() {
 ![project](images/project2.png)
 ## E. Jawaban Pertanyaan dan Tugas
 **1. Jelaskan perbedaan console.log(), alert(), prompt(), dan textContent/innerHTML.**
-- console.log() menampilkan informasi di Console browser. Umumnya
+- ````console.log()```` menampilkan informasi di Console browser. Umumnya
   digunakan untuk memeriksa nilai variabel dan hasil proses program.
-- alert() menampilkan kotak dialog berisi pesan dan menunggu
+- ````alert()``` menampilkan kotak dialog berisi pesan dan menunggu
   pengguna menekan tombol OK.
-- prompt() menampilkan kotak dialog yang meminta pengguna memasukkan
-  teks. Hasilnya berupa string atau null jika pengguna menekan
+- ````prompt()```` menampilkan kotak dialog yang meminta pengguna memasukkan
+  teks. Hasilnya berupa string atau ````null```` jika pengguna menekan
   Cancel.
-- textContent membaca atau mengubah teks di dalam elemen HTML tanpa
+- ````textContent```` membaca atau mengubah teks di dalam elemen HTML tanpa
   menafsirkan teks sebagai HTML.
-- innerHTML membaca atau mengubah isi elemen sebagai markup HTML.
+- ````innerHTML```` membaca atau mengubah isi elemen sebagai markup HTML.
   Karena browser menafsirkan markup tersebut, penggunaannya perlu
   hati-hati jika kontennya berasal dari input pengguna.
-**2. Apa perbedaan let dan const? Berikan contoh.**
+**2. Apa perbedaan ````let```` dan ````const````? Berikan contoh.**
 let digunakan untuk variabel yang nilainya dapat ditetapkan ulang.
 const digunakan untuk variabel yang tidak dapat ditetapkan ulang
 setelah deklarasi.
 
 Contoh:
+````
 let umur = 20;
 umur = 21;
 
 const nama = "Rani";
 // nama = "Dina"; // Akan menghasilkan error karena nama dideklarasikan dengan const
-**3. Apa perbedaan operator == dan ===?**
-Operator == membandingkan nilai dengan memungkinkan konversi tipe
-data. Operator === membandingkan nilai sekaligus tipe datanya tanpa
+````
+**3. Apa perbedaan operator ````==```` dan ````===````?**
+Operator ````==```` membandingkan nilai dengan memungkinkan konversi tipe
+data. Operator ````===```` membandingkan nilai sekaligus tipe datanya tanpa
 konversi tipe.
 
 Contoh:
+````
 console.log(5 == "5");  // true
 console.log(5 === "5"); // false
-Dalam banyak kasus, === lebih disarankan agar perbandingan lebih jelas
+````
+Dalam banyak kasus, ````===```` lebih disarankan agar perbandingan lebih jelas
 dan menghindari konversi tipe yang tidak diinginkan.
-**4. Jelaskan fungsi if-else dan switch. Kapan masing-masing dapat digunakan?**
-if-else menjalankan blok kode berdasarkan kondisi benar atau salah.
+**4. Jelaskan fungsi ````if-else```` dan ````switch````. Kapan masing-masing dapat digunakan?**
+````if-else```` menjalankan blok kode berdasarkan kondisi benar atau salah.
 Struktur ini cocok untuk rentang nilai atau kondisi logis, misalnya
 menentukan lulus jika nilai minimal 60.
 
-switch memilih tindakan berdasarkan kecocokan suatu ekspresi dengan
+````switch```` memilih tindakan berdasarkan kecocokan suatu ekspresi dengan
 beberapa nilai tertentu. Struktur ini cocok untuk pilihan tetap,
 misalnya mengubah input angka 1 sampai 5 menjadi nama bilangan.
-**5. Apa fungsi parameter dan return dalam function?**
+**5. Apa fungsi parameter dan ````return```` dalam function?**
 Parameter adalah variabel yang menerima nilai masukan ketika function
-dipanggil. return mengirimkan hasil dari function kembali ke bagian
+dipanggil. ````return```` mengirimkan hasil dari function kembali ke bagian
 program yang memanggilnya.
-
 Contoh:
+````
 function hitungLuas(panjang, lebar) {
     return panjang * lebar;
 }
 
 const luas = hitungLuas(8, 4);
 console.log(luas); // 32
-Pada contoh tersebut, panjang dan lebar merupakan parameter.
-return mengembalikan hasil perkalian.
-**6. Bagaimana JavaScript memilih elemen HTML menggunakan document.getElementById()**?
-document.getElementById() memilih elemen HTML berdasarkan nilai
-atribut id. Nilai id harus sesuai dengan elemen yang ada di HTML.
+````
+Pada contoh tersebut, ````panjang```` dan ````lebar```` merupakan parameter.
+````return```` mengembalikan hasil perkalian.
+**6. Bagaimana JavaScript memilih elemen HTML menggunakan ````document.getElementById()````**?
+````document.getElementById()```` memilih elemen HTML berdasarkan nilai
+atribut ````id````. Nilai ````id```` harus sesuai dengan elemen yang ada di HTML.
 
 Contoh:
+**XML**
+````
 <p id="pesan">Konten awal</p>
+````
+**JavaScript**
+````
 document.getElementById("pesan").textContent = "Hello World";
-Kode tersebut memilih elemen dengan id pesan, lalu mengubah teksnya
+````
+Kode tersebut memilih elemen dengan id ````pesan````, lalu mengubah teksnya
 menjadi "Hello World". Jika elemen dengan id tersebut tidak ditemukan,
-hasil pemilihannya adalah null.
+hasil pemilihannya adalah ````null````.
 
 **7. Buat script untuk memvalidasi form agar nama tidak kosong dan nilai berada pada rentang 0--100.**
 Contoh berikut memvalidasi nama dan nilai yang dimasukkan:
+**XML**
+````
 <label for="nama">Nama:</label>
 <input type="text" id="nama">
 
@@ -366,6 +379,9 @@ Contoh berikut memvalidasi nama dan nilai yang dimasukkan:
 
 <button type="button" onclick="validasiForm()">Periksa</button>
 <p id="hasilValidasi"></p>
+````
+**JavaScript**
+````
 function validasiForm() {
     const nama = document.getElementById("nama").value.trim();
     const inputNilai = document.getElementById("nilai").value;
@@ -385,6 +401,7 @@ function validasiForm() {
         hasil.textContent = "Data valid.";
     }
 }
+`````
 Validasi ini memastikan nama tidak kosong dan nilai berada dalam rentang
 0 sampai 100.
 ## F. Kesimpulan
