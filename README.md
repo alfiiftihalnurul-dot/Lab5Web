@@ -138,7 +138,7 @@ pesan validasi.
 Pengujian yang disarankan: Angka positif, angka negatif, nol,
 bilangan desimal, dan input kosong.
 ![latihan](images/latihan6.png)
-![latihan](latihan6.1.png)
+![latihan](images/latihan6.1.png)
 Latihan 7. Mengubah Warna Halaman
 Tujuan: Mengubah warna latar halaman menggunakan function dengan
 parameter.
