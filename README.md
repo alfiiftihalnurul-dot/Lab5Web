@@ -106,7 +106,7 @@ if (inputNilai === null || inputNilai.trim() === "" ||
 }
 ````
 ![latihan4](images/latihan4.png)
-![latihan](latihan4.1.png)
+![latihan](images/latihan4.1.png)
 ## Latihan 5. Seleksi switch
 ## Tujuan: Menampilkan nama bilangan berdasarkan angka 1 sampai 5.
 ````
