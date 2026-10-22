@@ -139,38 +139,69 @@ Pengujian yang disarankan: Angka positif, angka negatif, nol,
 bilangan desimal, dan input kosong.
 ![latihan](images/latihan6.png)
 ![latihan](images/latihan6.1.png)
-Latihan 7. Mengubah Warna Halaman
-Tujuan: Mengubah warna latar halaman menggunakan function dengan
+## Latihan 7. Mengubah Warna Halaman
+**Tujuan:** Mengubah warna latar halaman menggunakan function dengan
 parameter.
+````
+<button type="button" onclick="ubahWarnaLatar('lightgreen')">Latar Hijau</button>
+<button type="button" onclick="ubahWarnaLatar('white')">Latar Putih</button>
+<button type="button" onclick="ubahWarnaLatar('lightyellow')">Latar Kuning</button>
+````
+````
+javascript
+function ubahWarnaLatar(warna) {
+  document.body.style.backgroundColor = warna;
+}
+````
 
-Hasil yang diharapkan: - Tombol "Latar Hijau" mengubah latar menjadi
+**Hasil yang diharapkan:** - Tombol "Latar Hijau" mengubah latar menjadi
 hijau muda. - Tombol "Latar Putih" mengubah latar menjadi putih. -
 Tombol "Latar Kuning" mengubah latar menjadi kuning muda.
+![latihan](images/latihan7.png)
+![latihan](images/latihan7.1.png)
+## Latihan 8. Checkbox Menu Makanan
+**Tujuan:** Menghitung total harga menu yang dipilih melalui checkbox.
 
-Dokumentasi: Tambahkan screenshot salah satu perubahan warna.
-Latihan 8. Checkbox Menu Makanan
-Tujuan: Menghitung total harga menu yang dipilih melalui checkbox.
-
-Daftar menu: - Ayam Goreng: Rp5.000 - Tempe: Rp500 - Telur Dadar:
+**Daftar menu:** - Ayam Goreng: Rp5.000 - Tempe: Rp500 - Telur Dadar:
 Rp2.500
+````
+<h3>Daftar Menu Makanan</h3>
+<label><input type="checkbox" class="menu" value="5000"> Ayam Goreng — Rp5.000</label><br>
+<label><input type="checkbox" class="menu" value="500"> Tempe — Rp500</label><br>
+<label><input type="checkbox" class="menu" value="2500"> Telur Dadar — Rp2.500</label><br>
+<p>Total: Rp<span id="total">0</span></p>
+````
+````
+const daftarMenu = document.querySelectorAll(".menu");
 
-Hasil yang diharapkan: - Ayam Goreng dipilih: total Rp5.000. - Ayam
+daftarMenu.forEach((item) => {
+  item.addEventListener("change", hitungTotal);
+});
+
+function hitungTotal() {
+  let total = 0;
+  daftarMenu.forEach((item) => {
+    if (item.checked) total += Number(item.value);
+  });
+  document.getElementById("total").textContent = total.toLocaleString("id-ID");
+}
+````
+**Hasil yang diharapkan**: - Ayam Goreng dipilih: total Rp5.000. - Ayam
 Goreng dan Tempe dipilih: total Rp5.500. - Semua menu tidak dipilih:
 total Rp0.
 
 Total diperbarui saat checkbox dicentang atau dilepas.
-
-Dokumentasi: Tambahkan screenshot ketika satu atau lebih menu
-dipilih dan total harga berubah.
-Mini Project. Kalkulator Nilai Mahasiswa
-Tujuan: Menghitung nilai akhir, menentukan predikat, dan menampilkan
+![latihan](images/latihan8.png)
+![latihan](images/latihan8.1.png)
+## Mini Project. Kalkulator Nilai Mahasiswa
+**Tujuan:** Menghitung nilai akhir, menentukan predikat, dan menampilkan
 status kelulusan.
 
-Bobot penilaian: - Tugas: 30% - UTS: 30% - UAS: 40%
+**Bobot penilaian:** - Tugas: 30% - UTS: 30% - UAS: 40%
 
-Rumus nilai akhir:
+**Rumus nilai akhir:**
 
-Nilai akhir = (nilai tugas × 0,30) + (nilai UTS × 0,30) + (nilai UAS × 0,40)
+````Nilai akhir = (nilai tugas × 0,30) + (nilai UTS × 0,30) + (nilai UAS × 0,40)````
 
 Aturan predikat: - Nilai ≥ 85: A - Nilai ≥ 75: B - Nilai ≥ 60: C -
 Nilai ≥ 50: D - Nilai < 50: E
@@ -179,11 +210,86 @@ Nilai akhir minimal 60 dinyatakan lulus.
 
 Contoh pengujian: - Tugas: 85 - UTS: 78 - UAS: 88 - Nilai akhir:
 84,10 - Predikat: B - Status: Lulus
+**kalkulator html**
+````
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kalkulator Nilai Mahasiswa</title>
+</head>
+<body>
+  <h1>Kalkulator Nilai Mahasiswa</h1>
 
-Dokumentasi: Tambahkan screenshot hasil kalkulator nilai dan
-pengujian input tidak valid.
-E. Jawaban Pertanyaan dan Tugas
-1. Jelaskan perbedaan console.log(), alert(), prompt(), dan textContent/innerHTML.
+  <label for="tugas">Nilai Tugas (0–100):</label>
+  <input type="number" id="tugas" min="0" max="100"><br>
+
+  <label for="uts">Nilai UTS (0–100):</label>
+  <input type="number" id="uts" min="0" max="100"><br>
+
+  <label for="uas">Nilai UAS (0–100):</label>
+  <input type="number" id="uas" min="0" max="100"><br>
+
+  <button type="button" onclick="prosesNilai()">Hitung</button>
+
+  <p id="pesanError" style="color:red;"></p>
+  <div id="hasil"></div>
+
+  <script src="kalkulator.js"></script>
+</body>
+</html>
+````
+**kalkulator.js**
+````
+// ----- Fungsi perhitungan -----
+function hitungNilaiAkhir(tugas, uts, uas) {
+  return tugas * 0.30 + uts * 0.30 + uas * 0.40;
+}
+
+function tentukanPredikat(nilai) {
+  if (nilai >= 85) return "A";
+  if (nilai >= 75) return "B";
+  if (nilai >= 60) return "C";
+  if (nilai >= 50) return "D";
+  return "E";
+}
+
+// ----- Fungsi validasi -----
+function nilaiValid(teks) {
+  const angka = Number(teks);
+  return teks.trim() !== "" && !Number.isNaN(angka) && angka >= 0 && angka <= 100;
+}
+
+// ----- Fungsi tampilan -----
+function prosesNilai() {
+  const tugasTeks = document.getElementById("tugas").value;
+  const utsTeks = document.getElementById("uts").value;
+  const uasTeks = document.getElementById("uas").value;
+  const pesanError = document.getElementById("pesanError");
+  const hasil = document.getElementById("hasil");
+
+  if (!nilaiValid(tugasTeks) || !nilaiValid(utsTeks) || !nilaiValid(uasTeks)) {
+    pesanError.textContent = "Semua nilai harus diisi dengan angka antara 0 dan 100.";
+    hasil.textContent = "";
+    return;
+  }
+
+  pesanError.textContent = "";
+  const akhir = hitungNilaiAkhir(Number(tugasTeks), Number(utsTeks), Number(uasTeks));
+  const predikat = tentukanPredikat(akhir);
+  const status = akhir >= 60 ? "Lulus" : "Belum lulus";
+
+  hasil.innerHTML =
+    "<p>Nilai akhir: <b>" + akhir.toFixed(2) + "</b></p>" +
+    "<p>Predikat: <b>" + predikat + "</b></p>" +
+    "<p>Status: <b>" + status + "</b></p>";
+}
+````
+![project](images/project1.png)
+![project](images/project2.png)
+## E. Jawaban Pertanyaan dan Tugas
+**1. Jelaskan perbedaan console.log(), alert(), prompt(), dan textContent/innerHTML.**
 - console.log() menampilkan informasi di Console browser. Umumnya
   digunakan untuk memeriksa nilai variabel dan hasil proses program.
 - alert() menampilkan kotak dialog berisi pesan dan menunggu
@@ -196,7 +302,7 @@ E. Jawaban Pertanyaan dan Tugas
 - innerHTML membaca atau mengubah isi elemen sebagai markup HTML.
   Karena browser menafsirkan markup tersebut, penggunaannya perlu
   hati-hati jika kontennya berasal dari input pengguna.
-2. Apa perbedaan let dan const? Berikan contoh.
+**2. Apa perbedaan let dan const? Berikan contoh.**
 let digunakan untuk variabel yang nilainya dapat ditetapkan ulang.
 const digunakan untuk variabel yang tidak dapat ditetapkan ulang
 setelah deklarasi.
@@ -207,7 +313,7 @@ umur = 21;
 
 const nama = "Rani";
 // nama = "Dina"; // Akan menghasilkan error karena nama dideklarasikan dengan const
-3. Apa perbedaan operator == dan ===?
+**3. Apa perbedaan operator == dan ===?**
 Operator == membandingkan nilai dengan memungkinkan konversi tipe
 data. Operator === membandingkan nilai sekaligus tipe datanya tanpa
 konversi tipe.
@@ -217,7 +323,7 @@ console.log(5 == "5");  // true
 console.log(5 === "5"); // false
 Dalam banyak kasus, === lebih disarankan agar perbandingan lebih jelas
 dan menghindari konversi tipe yang tidak diinginkan.
-4. Jelaskan fungsi if-else dan switch. Kapan masing-masing dapat digunakan?
+**4. Jelaskan fungsi if-else dan switch. Kapan masing-masing dapat digunakan?**
 if-else menjalankan blok kode berdasarkan kondisi benar atau salah.
 Struktur ini cocok untuk rentang nilai atau kondisi logis, misalnya
 menentukan lulus jika nilai minimal 60.
@@ -225,7 +331,7 @@ menentukan lulus jika nilai minimal 60.
 switch memilih tindakan berdasarkan kecocokan suatu ekspresi dengan
 beberapa nilai tertentu. Struktur ini cocok untuk pilihan tetap,
 misalnya mengubah input angka 1 sampai 5 menjadi nama bilangan.
-5. Apa fungsi parameter dan return dalam function?
+**5. Apa fungsi parameter dan return dalam function?**
 Parameter adalah variabel yang menerima nilai masukan ketika function
 dipanggil. return mengirimkan hasil dari function kembali ke bagian
 program yang memanggilnya.
@@ -239,7 +345,7 @@ const luas = hitungLuas(8, 4);
 console.log(luas); // 32
 Pada contoh tersebut, panjang dan lebar merupakan parameter.
 return mengembalikan hasil perkalian.
-6. Bagaimana JavaScript memilih elemen HTML menggunakan document.getElementById()?
+**6. Bagaimana JavaScript memilih elemen HTML menggunakan document.getElementById()**?
 document.getElementById() memilih elemen HTML berdasarkan nilai
 atribut id. Nilai id harus sesuai dengan elemen yang ada di HTML.
 
@@ -249,7 +355,8 @@ document.getElementById("pesan").textContent = "Hello World";
 Kode tersebut memilih elemen dengan id pesan, lalu mengubah teksnya
 menjadi "Hello World". Jika elemen dengan id tersebut tidak ditemukan,
 hasil pemilihannya adalah null.
-7. Buat script untuk memvalidasi form agar nama tidak kosong dan nilai berada pada rentang 0--100.
+
+**7. Buat script untuk memvalidasi form agar nama tidak kosong dan nilai berada pada rentang 0--100.**
 Contoh berikut memvalidasi nama dan nilai yang dimasukkan:
 <label for="nama">Nama:</label>
 <input type="text" id="nama">
@@ -280,7 +387,7 @@ function validasiForm() {
 }
 Validasi ini memastikan nama tidak kosong dan nilai berada dalam rentang
 0 sampai 100.
-F. Kesimpulan
+## F. Kesimpulan
 Praktikum ini memperkenalkan dasar JavaScript untuk menampilkan output,
 menerima input pengguna, melakukan operasi aritmetika, menggunakan
 function dan percabangan, serta memanipulasi elemen HTML melalui DOM.
